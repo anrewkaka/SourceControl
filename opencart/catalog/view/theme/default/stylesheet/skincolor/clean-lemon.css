@@ -1,0 +1,51 @@
+.product-thumb {background:#fff;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.nav-tabs > li:hover > a {color:#222 !important;  }
+.well h2,#accordion h2, #accordion h4 a ,.btn-default {color:#444 !important;}
+#cart .btn-inverse {background-color:#ffffff; background-image:none;} 
+#cart .btn-inverse {color:#171717; border:0px solid;text-shadow:none; } 
+#menu .nav > li > a:hover {background-color:#7cff30;} 
+.dropdown-menu li > a:hover {background:#7de61c;} 
+#menu .see-all:hover {background:#7de61c;} 
+footer {background-color:#e8e8e8;} 
+.product-thumb {color:#363636;} 
+.product-thumb a {color:#7de61c !important;} 
+footer hr {border-bottom:1px solid #f0f0f0;} 
+footer a {color:#636363;} 
+footer a:hover {color:#292929;} 
+footer {color:#2f3030;} 
+footer h5 {color:#2f3030;} 
+h1, h2, h3, h4, h5, h6 {color:#171717;} 
+#accordion .panel-title {color:#444;}
+.btn-primary {background:#212121;} 
+.btn-primary {box-shadow:none; }
+.btn-primary {border:none;}
+.btn-primary:hover {background-color:#0d0d0d;}
+.btn-primary  { color:#fff !important;} 
+#menu .nav > li > a {color:#ffffff;} 
+#menu .nav > li > a:hover {text-shadow:none; color:#333333;} 
+#content a, .breadcrumb a {color:#454545;} 
+#top .btn-link, #top-links li, #top-links a {color:#ffffff;} 
+#top .btn-link, #top-links li, #top-links a {text-shadow:none;}
+#top {background:#7de61c;} 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {background:none;}
+body {background:#f5f5f5;} 
+#menu .nav > li > a {text-shadow:none;}
+#menu {background:#7de61c;} 
+#menu .container {background:#7de61c;} 
+#menu .nav > li > a:hover {color:#333333;} 
+#menu,.dropdown-menu {border:0px solid transparent;}
+#top {border-bottom:none;}
+.product-thumb {border:0px solid transparent;}
+.product-thumb .button-group button + button {border-left:0px solid transparent;}
+.product-thumb .button-group {border-top:0px solid transparent;}
+.product-thumb .button-group button {color:#ffffff;} 
+.product-thumb .button-group button:hover {color:#ffffff;} 
+.product-thumb .button-group button {background-color:#7de61c;} 
+.product-thumb .button-group button:hover {background-color:#000000;} 
+.breadcrumb {border:0px solid transparent;}
+.breadcrumb {background:none;}
+.breadcrumb > li {text-shadow:none;}
+.breadcrumb > li:after {top:8px; width:8px; height:8px;}
+.image-additional a ,.thumbnail, #product .form-control  ,.panel-default {border:none;}
+ 
+ 

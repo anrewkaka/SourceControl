@@ -1,0 +1,46 @@
+.product-thumb {background:#fff;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.nav-tabs > li:hover > a {color:#222 !important;  }
+.well h2,#accordion h2, #accordion h4 a ,.btn-default {color:#444 !important;}
+.dropdown-menu li > a:hover {background:#ff3030;} 
+#menu .see-all:hover {background:#ff3030;} 
+footer {background-color:#171717;} 
+.product-thumb a {color:#171717 !important;} 
+footer a {color:#666666;} 
+footer a:hover {color:#ff0000;} 
+footer {color:#ffffff;} 
+footer h5 {color:#ffffff;} 
+h1, h2, h3, h4, h5, h6 {color:#ffffff;} 
+#accordion .panel-title {color:#444;}
+.btn-primary {background:#d10000;} 
+.btn-primary {box-shadow:none;}
+.btn-primary {border:none;}
+.btn-primary:hover {background-color:#fa0000;} 
+#content a, .breadcrumb a {color:#ffffff;} 
+body {color:#a3a3a3;} 
+table,.panel-body,.dropdown-menu {color:#666;}
+#top .btn-link:hover, #top-links a:hover {color:#ff3030;} 
+#top .btn-link, #top-links li, #top-links a {color:#e0e0e0;} 
+#top .btn-link, #top-links li, #top-links a {text-shadow:none;}
+#top {background:#1f1f1f;} 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {background:none;}
+body {background:#000000;} 
+#menu .nav > li > a {text-shadow:none;}
+ 
+#menu {background:#ff3030;} 
+#menu .container {background:#ff3030;} 
+#menu,.dropdown-menu {border:0px solid transparent;}
+
+#top {border-bottom:none;}
+.product-thumb {border:0px solid transparent;}
+.product-thumb .button-group button + button {border-left:0px solid transparent;}
+.product-thumb .button-group {border-top:0px solid transparent;}
+.product-thumb .button-group button {color:#ffffff;} 
+.product-thumb .button-group button {background-color:#ff0000;} 
+.product-thumb .button-group button:hover {background-color:#000; color:#fff;} 
+footer {border:0px solid transparent;}
+.breadcrumb {border:0px solid transparent;}
+.breadcrumb {background:none;}
+.breadcrumb > li {text-shadow:none;}
+.breadcrumb > li:after {top:8px; width:8px; height:8px;}
+.table-bordered ,.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td
+{border-color:#363c40;}

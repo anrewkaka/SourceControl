@@ -1,0 +1,34 @@
+.product-thumb {background:#fff;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.nav-tabs > li:hover > a {color:#222 !important;  }
+.well h2,#accordion h2, #accordion h4 a ,.btn-default {color:#444 !important;}
+#cart .btn-inverse {background-color:#259ef5; background-image:none; border:none;} 
+.dropdown-menu li > a:hover {background:#ff931f;} 
+#menu .see-all:hover {background:#ff931f;} 
+footer {background-color:#ffffff;} 
+.product-thumb a {color:#ff901a !important;} 
+footer hr {border-bottom:1px solid #f0f3f5;} 
+footer a {color:#33434f;} 
+footer a:hover {color:#259ef5;} 
+footer {color:#259ef5;} 
+footer h5 {color:#259ef5;} 
+.btn-primary {background:#ff931f;} 
+.btn-primary {box-shadow:none;}
+.btn-primary {border:none;}
+.btn-primary:hover {background-color:#ff8400; } 
+.btn-primary  { color:#fff !important;} 
+#menu .nav > li > a {color:#ffffff;} 
+#content a, .breadcrumb a {color:#26a5ff;} 
+body {background:#ededed;} 
+#menu .nav > li > a {text-shadow:none;}
+#menu {background:#ff931f;} 
+#menu .container {background:#ff931f;} 
+#menu,.dropdown-menu {border:0px solid transparent;}
+#top {border-bottom:none;}
+.product-thumb {border:0px solid transparent;}
+.product-thumb .button-group button + button {border-left:0px solid transparent;}
+.product-thumb .button-group {border-top:0px solid transparent;}
+.btn-primary {color:#ffffff;} 
+.product-thumb .button-group button {color:#ffffff;} 
+.product-thumb .button-group button {background-color:#259ef5;} 
+.product-thumb .button-group button:hover {background-color:#ff901a; color:#222;} 
+footer {border:0px solid transparent;}

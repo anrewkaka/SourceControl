@@ -1,0 +1,41 @@
+.product-thumb {background:#fff;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.nav-tabs > li:hover > a {color:#222 !important;  }
+.well h2,#accordion h2, #accordion h4 a ,.btn-default {color:#444 !important;}
+#cart .btn-inverse {background-color:#ffffff; background-image:none;} 
+#cart .btn-inverse {color:#ff7640; border:0px solid; text-shadow:none; box-shadow:none;} 
+#menu .nav > li > a:hover {background-color:#1c1c1c;} 
+.dropdown-menu li > a:hover {background:#1c1c1c;} 
+#menu .see-all:hover {background:#1c1c1c;} 
+footer {background-color:#f7f7f7;} 
+.product-thumb a {color:#292929 !important;} 
+footer hr {border-bottom:1px solid #ebebeb;} 
+footer a {color:#4a4a4a;} 
+footer a:hover {color:#ff2b00;} 
+footer {color:#4f4f4f;} 
+footer h5 {color:#4f4f4f;} 
+h1, h2, h3, h4, h5, h6 {color:#0f0f0f;} 
+#accordion .panel-title {color:#444;}
+.btn-primary {background:#242424;} 
+.btn-primary {box-shadow:none;}
+.btn-primary {border:none;}
+.btn-primary:hover {background-color:#ff430a;} 
+.btn-primary  { color:#fff !important;} 
+#content a, .breadcrumb a {color:#ed4d1c;} 
+#top .btn-link, #top-links li, #top-links a {text-shadow:none;}
+#top {background:#f2f2f2;} 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {background:none;}
+#menu .nav > li > a {text-shadow:none;}
+#menu {background:#ff5b3b;} 
+#menu .container {background:#ff5b3b;} 
+#menu,.dropdown-menu {border:0px solid transparent;}
+#top {border-bottom:none;}
+.product-thumb {border:0px solid transparent;}
+.product-thumb .button-group button + button {border-left:0px solid transparent;}
+.product-thumb .button-group {border-top:0px solid transparent;}
+.product-thumb .button-group button {color:#ffffff;} 
+.product-thumb .button-group button {background-color:#ff5b3b;} 
+.product-thumb .button-group button:hover {background-color:#0f0f0f; color:#fff;} 
+.breadcrumb {border:0px solid transparent;}
+.breadcrumb {background:none;}
+.breadcrumb > li {text-shadow:none;}
+.breadcrumb > li:after {top:8px; width:8px; height:8px;}

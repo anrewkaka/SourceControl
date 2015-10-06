@@ -1,0 +1,43 @@
+.product-thumb {background:#fff;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.nav-tabs > li:hover > a {color:#222 !important;  }
+.{color:#222 !important;  }
+.well h2,#accordion h2, #accordion h4 a ,.btn-default {color:#444 !important;}
+#cart .btn-inverse {  background-image:none;} 
+.dropdown-menu li > a:hover {background:#6b6b6b;} 
+#menu .see-all:hover {background:#6b6b6b;} 
+.product-thumb {color:#858585;} 
+.product-thumb a {color:#696969 !important;} 
+.table-bordered ,.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {border-color:#b0b0b0;} 
+h1, h2, h3, h4, h5, h6 {color:#ffffff;} 
+#accordion .panel-title {color:#444;}
+#content a, .breadcrumb a {color:#222222;} 
+body {color:#ffffff;} 
+table,.panel-body,.dropdown-menu {color:#666;}
+body {background:#828282;} 
+#menu .nav > li > a {text-shadow:none;}
+#menu .nav > li > a:hover {background-color:#666;}
+#menu {background:#adadad;} 
+#menu .container {background:#adadad;} 
+#menu,.dropdown-menu {border:0px solid transparent;}
+#top {border-bottom:none;}
+.btn-primary { 
+background-image:linear-gradient(to bottom, #4b4b4b, #202020) ;
+border-color:#424241 #424241 #1f1f1e;}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+	background-color:#1f1f1e;
+	 border-color:#424241 #424241 #1f1f1e; 
+}
+.product-thumb {border:0px solid transparent;}
+.product-thumb .button-group button + button {border-left:0px solid transparent;}
+.product-thumb .button-group {border-top:0px solid transparent;}
+.btn-primary {color:#ffffff !important; text-shadow:none;} 
+.product-thumb .button-group button {color:#ffffff;} 
+.product-thumb .button-group button:hover {color:#ffff29;background:#444;} 
+.product-thumb .button-group button {background-color:#b5b5b5;} 
+footer {border:0px solid transparent;}
+.breadcrumb {border:0px solid transparent;}
+.breadcrumb {background:none;}
+.breadcrumb > li {text-shadow:none;}
+.breadcrumb > li:after {top:8px; width:8px; height:8px;}
+.image-additional a ,.thumbnail ,#product .form-control,.panel-default {border:none;}
+.form-control  {box-shadow:none;} 
