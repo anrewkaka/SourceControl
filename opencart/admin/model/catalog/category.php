@@ -47,6 +47,12 @@ class ModelCatalogCategory extends Model {
 			}
 		}
 
+		/* Lan-NT - Automatically add keywork - STA */
+		$name = $data ['category_description'] [2] ['name'];
+		$nameSeo = StringUtil::getNameToSeoLink(StringUtil::SEO_LINK_CLASS_CATEGORY, $name);
+		$data ['keyword'] = $nameSeo;
+		/* Lan-NT - Automatically add keywork - END */
+
 		if (isset($data['keyword'])) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
@@ -315,10 +321,10 @@ class ModelCatalogCategory extends Model {
 
 		return $query->row['total'];
 	}
-	
+
 	public function getTotalCategoriesByLayoutId($layout_id) {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "category_to_layout WHERE layout_id = '" . (int)$layout_id . "'");
 
 		return $query->row['total'];
-	}	
+	}
 }
