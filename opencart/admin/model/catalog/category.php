@@ -156,6 +156,11 @@ class ModelCatalogCategory extends Model {
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'category_id=" . (int)$category_id . "'");
 
+		/* Lan-NT - Automatically add keywork - STA */
+		$name = $data ['category_description'] [2] ['name'];
+		$nameSeo = StringUtil::getNameToSeoLink(StringUtil::SEO_LINK_CLASS_CATEGORY, $name);
+		$data ['keyword'] = $nameSeo;
+		/* Lan-NT - Automatically add keywork - END */
 		if ($data['keyword']) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
