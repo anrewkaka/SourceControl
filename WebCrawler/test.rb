@@ -90,6 +90,17 @@ def get_prd_lst(link)
     return detail_link_lst
 end
 
+def download_img(src)
+    upload_folder = '/usr/RubyUploads'
+    locations = src.split('/')
+    file_nm = "#{upload_folder}/#{locations.last}"
+
+    src = "#{BASE_URI}/#{src}"
+    open(file_nm, 'wb') do |file|
+        file << open(src).read
+    end
+end
+
 def output_details(file, category_name, detail_link_lst)
     detail_index = 0
     detail_link_lst.each{ |detail_link|
@@ -98,37 +109,53 @@ def output_details(file, category_name, detail_link_lst)
         detail_page = parse_page(detail_link)
 
         prd_nm = detail_page.xpath('//*[@id="col-mid"]/div[4]/div[1]/div[1]/h1')
+        prd_nm = prd_nm.text
         prd_prc = detail_page.xpath('//*[@id="col-mid"]/div[4]/div[1]/div[3]/div[1]/text()')
+        prd_prc = prd_prc.text.gsub(/[^0-9]/, '')
         prd_dtl = detail_page.xpath('//*[@id="col-mid"]/div[4]/div[2]')
+        prd_dtl = prd_dtl.text
 
         puts "---->> product #{detail_index} <<----"
         puts "Category: #{category_name}"
-        puts "Name: #{prd_nm.text}"
-        puts "Price: #{prd_prc.text.gsub(/[^0-9]/, '')}"
-        puts "Detail: #{prd_dtl.text}"
+        puts "Name: #{prd_nm}"
+        puts "Price: #{prd_prc}"
+        puts "Detail: #{prd_dtl}"
 
-        prd_img_lst = Array.new()
-        puts 'here'
-        detail_page.xpath('//*[@id="box-body"]/img[@class="cloudzoom-gallery"]') { |img|
-            puts 'detail'
-            img_src = img.attr('src')
-            puts img_src
+        # get cover
+        prd_img_main = detail_page.xpath('//*[@id="mainImg"]')
+        prd_img_main = prd_img_main.attr('src').text
+        download_img(prd_img_main)
+
+        puts "Cover: #{prd_img_main}"
+
+        # get detail IMG
+        prd_img_detail = ""
+        detail_page.xpath('//*[@class="product-thumbnail"]/ul/li/div/table').each{ |img|
+            img_path = img.xpath('tr/td/a/img').attr('src')
+            img_path = img_path.text.sub('/_thumbs', '')
+
+            download_img(img_path)
+
+            prd_img_detail += "#{img_path}→"
         }
 
-        #TODO:remove
-        break
-    }
-end
+        puts "IMG Detail: #{prd_img_detail}"
 
-def download_img(link)
-    open('image.png', 'wb') do |file|
-        file << open(link).read
-    end
+        file.write "#{category_name}\t"
+        file.write "#{prd_nm}\t"
+        file.write "#{prd_prc}\t"
+        file.write "#{prd_dtl}\t"
+        file.write "#{prd_img_main}\t"
+        file.write "#{prd_img_detail}\n"
+
+        #TODO:remove
+        break if prd_nm == 'Son dưỡng môi Nga'
+    }
 end
 
 index = 0
 file = nil
-open('AZ_KDL_PRD_000.CSV', 'w') do |file|
+open('/usr/RubyUploads/AZ_KDL_PRD_000.CSV', 'w:UTF-8') do |file|
     loop {
         link_lst.each { |link|
             puts '---------------------------------------------'
