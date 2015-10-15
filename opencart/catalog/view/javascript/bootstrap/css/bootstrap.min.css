@@ -1550,7 +1550,7 @@ p {
 }
 
 a.text-primary:hover {
-	color: #8c0d75
+	color: #286090
 }
 
 .text-success {
@@ -1591,7 +1591,7 @@ a.text-danger:hover {
 }
 
 a.bg-primary:hover {
-	background-color: #8c0d75
+	background-color: #286090
 }
 
 .bg-success {
@@ -3374,8 +3374,8 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 	.btn-primary:focus, .btn-primary:hover, .open>.dropdown-toggle.btn-primary
 	{
 	color: #fff;
-	background-color: #8c0d75;
-	border-color: #580749
+	background-color: #286090;
+	border-color: #204d74
 }
 
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary
@@ -5163,7 +5163,7 @@ a.label:focus, a.label:hover {
 }
 
 .label-primary[href]:focus, .label-primary[href]:hover {
-	background-color: #8c0d75
+	background-color: #286090
 }
 
 .label-success {
