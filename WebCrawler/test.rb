@@ -1,5 +1,5 @@
 #! /usr/local/rbenv/shims/ruby
-# -*- coding: utf-8 -*-
+# encoding: utf-8
 require 'nokogiri'
 require 'open-uri'
 
@@ -12,14 +12,14 @@ OPEN_RETRY_COUNT = 5
 # AGENTの設定
 USER_AGENT = "Mozilla/5.0(Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.854.0 Safari/535.2"
 
+UPLOAD_FOLDER = '/usr/RubyUploads'
+
 # ページ取得
-def parse_page(uri, encoding = nil)
+def parse_page(uri, encoding = 'UTF-8')
     page = nil
     retry_count = 0
 
     begin
-        #    page = Nokogiri.HTML(open(uri, {:proxy => PROXY_ADR, "User-Agent" =>
-        # USER_AGENT}),
         page = Nokogiri.HTML(open(uri, {"User-Agent" => USER_AGENT}), nil, encoding)
     rescue
         if retry_count < OPEN_RETRY_COUNT
@@ -32,6 +32,13 @@ def parse_page(uri, encoding = nil)
     end
 
     page
+end
+
+def random_string(num_of_char)
+    o = [('a'..'z')].map { |i| i.to_a }.flatten
+    string = (0...num_of_char).map { o[rand(o.length)] }.join
+
+    return string
 end
 
 home_page = parse_page(BASE_URI)
@@ -90,15 +97,28 @@ def get_prd_lst(link)
     return detail_link_lst
 end
 
-def download_img(src)
-    upload_folder = '/usr/RubyUploads'
+def get_fl_ex(src)
     locations = src.split('/')
-    file_nm = "#{upload_folder}/#{locations.last}"
+    extensions = locations.last.split('.')
+    file_ex = extensions.last
 
-    src = "#{BASE_URI}/#{src}"
-    open(file_nm, 'wb') do |file|
-        file << open(src).read
+    return file_ex
+end
+
+def download_img(src, fl_nm, out_src = false)
+    if out_src == false
+        src = "#{BASE_URI}/#{src}"
     end
+
+    open("#{UPLOAD_FOLDER}/#{fl_nm}", 'wb') do |file|
+        begin
+            file << open(src).read
+        rescue
+            return false
+        end
+    end
+
+    return true
 end
 
 def output_details(file, category_name, detail_link_lst)
@@ -112,44 +132,56 @@ def output_details(file, category_name, detail_link_lst)
         prd_nm = prd_nm.text
         prd_prc = detail_page.xpath('//*[@id="col-mid"]/div[4]/div[1]/div[3]/div[1]/text()')
         prd_prc = prd_prc.text.gsub(/[^0-9]/, '')
-        prd_dtl = detail_page.xpath('//*[@id="col-mid"]/div[4]/div[2]')
-        prd_dtl = prd_dtl.text
+        prd_dtl_div = detail_page.xpath('//*[@id="col-mid"]/div[4]/div[2]')
+        prd_dtl = prd_dtl_div.text
 
         puts "---->> product #{detail_index} <<----"
-        puts "Category: #{category_name}"
-        puts "Name: #{prd_nm}"
-        puts "Price: #{prd_prc}"
-        puts "Detail: #{prd_dtl}"
 
         # get cover
         prd_img_main = detail_page.xpath('//*[@id="mainImg"]')
         prd_img_main = prd_img_main.attr('src').text
-        download_img(prd_img_main)
-
-        puts "Cover: #{prd_img_main}"
+        prd_img_main_nm = "shopxuany_#{random_string(10)}.#{get_fl_ex(prd_img_main)}"
+        download_img(prd_img_main, prd_img_main_nm)
 
         # get detail IMG
         prd_img_detail = ""
         detail_page.xpath('//*[@class="product-thumbnail"]/ul/li/div/table').each{ |img|
             img_path = img.xpath('tr/td/a/img').attr('src')
             img_path = img_path.text.sub('/_thumbs', '')
+            dtl_img_nm = "shopxuany_#{random_string(10)}.#{get_fl_ex(img_path)}"
+            dwn_result = download_img(img_path, dtl_img_nm)
 
-            download_img(img_path)
-
-            prd_img_detail += "#{img_path}→"
+            if dwn_result
+                prd_img_detail += "#{dtl_img_nm}→"
+            end
         }
 
-        puts "IMG Detail: #{prd_img_detail}"
+        # get content IMG
+        prd_dtl_div.xpath('p/img').each{ |content_img|
+            img_path = content_img.attr('src')
+            prd_content_nm = "shopxuany_#{random_string(10)}.#{get_fl_ex(img_path)}"
+            dwn_result = download_img(img_path, prd_content_nm, true)
+
+            if dwn_result
+                prd_img_detail += "#{prd_content_nm}→"
+            end
+        }
+
+        #create detail file
+        detail_fl_nm = "#{random_string(20)}.txt";
+        open("#{UPLOAD_FOLDER}/#{detail_fl_nm}", 'wb') do |file_dl|
+            file_dl.write "#{prd_dtl}\t"
+        end
 
         file.write "#{category_name}\t"
         file.write "#{prd_nm}\t"
         file.write "#{prd_prc}\t"
-        file.write "#{prd_dtl}\t"
-        file.write "#{prd_img_main}\t"
-        file.write "#{prd_img_detail}\n"
+        file.write "#{detail_fl_nm}\t"
+        file.write "#{prd_img_main_nm}\t"
+        file.write "#{prd_img_detail}\r\n"
 
         #TODO:remove
-        break if prd_nm == 'Son dưỡng môi Nga'
+        #        break if prd_nm == 'Son Lì Innisfree'
     }
 end
 
@@ -164,7 +196,7 @@ open('/usr/RubyUploads/AZ_KDL_PRD_000.CSV', 'w:UTF-8') do |file|
             detail_link_lst = get_prd_lst(link)
             output_details(file, link.text, detail_link_lst)
             #TODO:remove
-            break
+            #            break
         }
         break
     }
