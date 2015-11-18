@@ -11,11 +11,17 @@ import common.Constants;
 public class JdbcExecute {
 	// JDBC driver name and database URL
 	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://db04.serverhosting.vn/sho92404_xuany";
 
 	// Database credentials
-	private static final String USER = "sho92404_xuany";
-	private static final String PASS = "Gydcuatui1";
+	private static final String DB_URL = "jdbc:mysql://192.168.1.222/shopxuany";
+	private static final String USER = "sa";
+	private static final String PASS = "123456";
+
+	// private static final String DB_URL =
+	// "jdbc:mysql://db04.serverhosting.vn/sho92404_xuany";
+	// private static final String USER = "sho92404_xuany";
+	// private static final String PASS = "Gydcuatui1";
+
 	private static Connection conn = null;
 	private static Statement stmt = null;
 	private static ResultSet rs = null;

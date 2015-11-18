@@ -129,4 +129,9 @@ public class ProductRegisterPage extends PageObject {
 
 		return this;
 	}
+
+	public ProductRegisterPage reload(String token) {
+		super.load("/admin/index.php?route=catalog/product/add&token=" + token);
+		return this;
+	}
 }
